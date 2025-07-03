@@ -9,17 +9,17 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
-  User, 
-  Upload, 
-  Plus, 
+  Award, 
+  Briefcase, 
   Edit, 
-  Trash2, 
+  FileText, 
+  GraduationCap, 
+  Plus,
   Save,
-  FileText,
-  Award,
-  Briefcase,
-  GraduationCap,
-  Settings
+  Settings,
+  Trash2,
+  Upload,
+  User
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 

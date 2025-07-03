@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { PageHeader } from '@/components/layout/PageHeader';
@@ -10,14 +10,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Slider } from '@/components/ui/slider';
 import { Checkbox } from '@/components/ui/checkbox';
 import { 
-  Search, 
-  Filter, 
-  MapPin, 
-  DollarSign, 
+  Bookmark, 
+  BookmarkCheck, 
   Clock, 
-  Bookmark,
-  BookmarkCheck,
-  Eye,
+  DollarSign, 
+  Eye, 
+  Filter,
+  MapPin,
+  Search,
   Users
 } from 'lucide-react';
 import { mockJobListings } from '@/data/mockData';
@@ -73,9 +73,9 @@ export const JobSearchPage: React.FC = () => {
   };
 
   const getMatchColor = (score: number) => {
-    if (score >= 90) return 'bg-green-500';
-    if (score >= 75) return 'bg-blue-500';
-    if (score >= 60) return 'bg-yellow-500';
+    if (score >= 90) {return 'bg-green-500';}
+    if (score >= 75) {return 'bg-blue-500';}
+    if (score >= 60) {return 'bg-yellow-500';}
     return 'bg-red-500';
   };
 
@@ -89,9 +89,9 @@ export const JobSearchPage: React.FC = () => {
     const diffTime = Math.abs(now.getTime() - date.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    if (diffDays === 1) return '1 day ago';
-    if (diffDays < 7) return `${diffDays} days ago`;
-    if (diffDays < 30) return `${Math.ceil(diffDays / 7)} weeks ago`;
+    if (diffDays === 1) {return '1 day ago';}
+    if (diffDays < 7) {return `${diffDays} days ago`;}
+    if (diffDays < 30) {return `${Math.ceil(diffDays / 7)} weeks ago`;}
     return `${Math.ceil(diffDays / 30)} months ago`;
   };
 

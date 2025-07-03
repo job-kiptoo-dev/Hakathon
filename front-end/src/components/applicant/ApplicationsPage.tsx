@@ -7,15 +7,15 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
 import { 
-  FileText, 
+  AlertCircle, 
   Calendar, 
-  Clock, 
   CheckCircle, 
-  XCircle, 
-  AlertCircle,
+  Clock, 
+  Download, 
   Eye,
+  FileText,
   MessageSquare,
-  Download
+  XCircle
 } from 'lucide-react';
 import { mockApplications } from '@/data/mockData';
 
@@ -80,7 +80,7 @@ export const ApplicationsPage: React.FC = () => {
   };
 
   const filterApplications = (status: string) => {
-    if (status === 'all') return applications;
+    if (status === 'all') {return applications;}
     return applications.filter(app => app.status === status);
   };
 
@@ -112,9 +112,9 @@ export const ApplicationsPage: React.FC = () => {
     const diffTime = Math.abs(now.getTime() - date.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    if (diffDays === 1) return '1 day ago';
-    if (diffDays < 7) return `${diffDays} days ago`;
-    if (diffDays < 30) return `${Math.ceil(diffDays / 7)} weeks ago`;
+    if (diffDays === 1) {return '1 day ago';}
+    if (diffDays < 7) {return `${diffDays} days ago`;}
+    if (diffDays < 30) {return `${Math.ceil(diffDays / 7)} weeks ago`;}
     return `${Math.ceil(diffDays / 30)} months ago`;
   };
 

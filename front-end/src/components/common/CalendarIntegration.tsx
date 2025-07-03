@@ -7,15 +7,15 @@ import { Textarea } from '@/components/ui/textarea';
 import { 
   Calendar, 
   Clock, 
-  MapPin, 
-  Users, 
-  Video, 
+  Download, 
+  Edit, 
+  ExternalLink, 
+  MapPin,
   Phone,
   Plus,
-  Edit,
   Trash2,
-  ExternalLink,
-  Download
+  Users,
+  Video
 } from 'lucide-react';
 
 interface CalendarEvent {

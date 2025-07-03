@@ -1,12 +1,12 @@
 import { 
-  Applicant, 
-  Employer, 
   Admin, 
-  JobListing, 
+  AnalyticsData, 
+  Applicant, 
   Application, 
   Company, 
-  Notification,
-  AnalyticsData 
+  Employer, 
+  JobListing,
+  Notification 
 } from '../types';
 
 // Mock Companies

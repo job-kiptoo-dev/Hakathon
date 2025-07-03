@@ -9,18 +9,18 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
-  Search, 
+  Calendar, 
+  Download, 
+  Edit, 
   Filter, 
-  MoreHorizontal, 
-  UserCheck, 
-  UserX, 
   Mail, 
-  Shield,
-  Calendar,
-  Download,
+  MoreHorizontal, 
   Plus,
-  Edit,
-  Trash2
+  Search,
+  Shield,
+  Trash2,
+  UserCheck,
+  UserX
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -102,8 +102,8 @@ export const UserManagementPage: React.FC = () => {
     const diffTime = Math.abs(now.getTime() - date.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    if (diffDays === 1) return '1 day ago';
-    if (diffDays < 30) return `${diffDays} days ago`;
+    if (diffDays === 1) {return '1 day ago';}
+    if (diffDays < 30) {return `${diffDays} days ago`;}
     return `${Math.ceil(diffDays / 30)} months ago`;
   };
 

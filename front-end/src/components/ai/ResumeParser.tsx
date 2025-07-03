@@ -1,19 +1,19 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { 
-  Upload, 
-  FileText, 
-  CheckCircle, 
   AlertCircle, 
-  User,
-  Briefcase,
+  Award, 
+  Briefcase, 
+  CheckCircle, 
+  Download,
+  FileText,
   GraduationCap,
-  Award,
   RefreshCw,
-  Download
+  Upload,
+  User
 } from 'lucide-react';
 import { geminiService } from '@/services/geminiService';
 
@@ -65,7 +65,7 @@ export const ResumeParser: React.FC<ResumeParserProps> = ({ onParsed }) => {
   };
 
   const parseResume = async () => {
-    if (!file) return;
+    if (!file) {return;}
 
     setParsing(true);
     setError(null);
@@ -114,16 +114,16 @@ export const ResumeParser: React.FC<ResumeParserProps> = ({ onParsed }) => {
   };
 
   const getCompletionPercentage = () => {
-    if (!parsedData) return 0;
+    if (!parsedData) {return 0;}
     
     let completed = 0;
     const total = 5;
     
-    if (parsedData.personalInfo?.name) completed++;
-    if (parsedData.experience?.length > 0) completed++;
-    if (parsedData.education?.length > 0) completed++;
-    if (parsedData.skills?.length > 0) completed++;
-    if (parsedData.summary) completed++;
+    if (parsedData.personalInfo?.name) {completed++;}
+    if (parsedData.experience?.length > 0) {completed++;}
+    if (parsedData.education?.length > 0) {completed++;}
+    if (parsedData.skills?.length > 0) {completed++;}
+    if (parsedData.summary) {completed++;}
     
     return Math.round((completed / total) * 100);
   };

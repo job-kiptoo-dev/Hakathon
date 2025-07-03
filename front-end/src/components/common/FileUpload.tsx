@@ -1,17 +1,17 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { 
-  Upload, 
-  File, 
-  X, 
+  AlertCircle, 
   CheckCircle, 
-  AlertCircle,
+  File, 
+  FileAudio, 
   FileText,
-  Image,
   FileVideo,
-  FileAudio
+  Image,
+  Upload,
+  X
 } from 'lucide-react';
 
 interface FileUploadProps {
@@ -52,9 +52,9 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 
   const getFileIcon = (file: File) => {
     const type = file.type;
-    if (type.startsWith('image/')) return <Image className="h-5 w-5" />;
-    if (type.startsWith('video/')) return <FileVideo className="h-5 w-5" />;
-    if (type.startsWith('audio/')) return <FileAudio className="h-5 w-5" />;
+    if (type.startsWith('image/')) {return <Image className="h-5 w-5" />;}
+    if (type.startsWith('video/')) {return <FileVideo className="h-5 w-5" />;}
+    if (type.startsWith('audio/')) {return <FileAudio className="h-5 w-5" />;}
     if (type.includes('pdf') || type.includes('document') || type.includes('text')) {
       return <FileText className="h-5 w-5" />;
     }
@@ -62,7 +62,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
   };
 
   const formatFileSize = (bytes: number) => {
-    if (bytes === 0) return '0 Bytes';
+    if (bytes === 0) {return '0 Bytes';}
     const k = 1024;
     const sizes = ['Bytes', 'KB', 'MB', 'GB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
@@ -158,7 +158,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
       validFiles.push(file);
     }
 
-    if (validFiles.length === 0) return;
+    if (validFiles.length === 0) {return;}
 
     // Create upload entries
     const newUploads: UploadedFile[] = validFiles.map(file => ({
@@ -200,7 +200,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
     event.preventDefault();
     setIsDragOver(false);
     
-    if (disabled) return;
+    if (disabled) {return;}
     
     const files = event.dataTransfer.files;
     if (files) {
@@ -226,7 +226,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 
   const retryUpload = async (id: string) => {
     const file = uploadedFiles.find(f => f.id === id);
-    if (!file) return;
+    if (!file) {return;}
 
     setUploadedFiles(prev => prev.map(f => 
       f.id === id 

@@ -8,23 +8,23 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { 
-  Search, 
-  Filter, 
-  Star, 
-  Eye, 
+  Briefcase, 
   Calendar, 
-  MessageSquare,
-  Download,
-  CheckCircle,
-  XCircle,
-  Clock,
-  User,
-  Briefcase,
-  MapPin,
+  CheckCircle, 
+  Clock, 
+  Download, 
+  Eye,
+  Filter,
   Mail,
-  Phone
+  MapPin,
+  MessageSquare,
+  Phone,
+  Search,
+  Star,
+  User,
+  XCircle
 } from 'lucide-react';
-import { mockApplications, mockJobListings, mockApplicants } from '@/data/mockData';
+import { mockApplicants, mockApplications, mockJobListings } from '@/data/mockData';
 
 export const CandidatesPage: React.FC = () => {
   const [applications, setApplications] = useState(mockApplications);
@@ -126,9 +126,9 @@ export const CandidatesPage: React.FC = () => {
   };
 
   const getMatchColor = (score: number) => {
-    if (score >= 90) return 'text-green-600';
-    if (score >= 75) return 'text-blue-600';
-    if (score >= 60) return 'text-yellow-600';
+    if (score >= 90) {return 'text-green-600';}
+    if (score >= 75) {return 'text-blue-600';}
+    if (score >= 60) {return 'text-yellow-600';}
     return 'text-red-600';
   };
 
@@ -146,8 +146,8 @@ export const CandidatesPage: React.FC = () => {
     const diffTime = Math.abs(now.getTime() - date.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    if (diffDays === 1) return '1 day ago';
-    if (diffDays < 7) return `${diffDays} days ago`;
+    if (diffDays === 1) {return '1 day ago';}
+    if (diffDays < 7) {return `${diffDays} days ago`;}
     return `${Math.ceil(diffDays / 7)} weeks ago`;
   };
 

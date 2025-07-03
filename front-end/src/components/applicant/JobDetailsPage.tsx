@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -7,16 +7,16 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
   ArrowLeft,
-  MapPin,
-  DollarSign,
-  Clock,
   Bookmark,
   BookmarkCheck,
-  Users,
   Building,
   CheckCircle,
+  Clock,
+  DollarSign,
+  ExternalLink,
+  MapPin,
   Share2,
-  ExternalLink
+  Users
 } from 'lucide-react';
 import { mockJobListings } from '@/data/mockData';
 import { JobListing } from '@/types';
@@ -69,9 +69,9 @@ export const JobDetailsPage: React.FC = () => {
   };
 
   const getMatchColor = (score: number) => {
-    if (score >= 90) return 'bg-green-500';
-    if (score >= 75) return 'bg-blue-500';
-    if (score >= 60) return 'bg-yellow-500';
+    if (score >= 90) {return 'bg-green-500';}
+    if (score >= 75) {return 'bg-blue-500';}
+    if (score >= 60) {return 'bg-yellow-500';}
     return 'bg-red-500';
   };
 
@@ -85,9 +85,9 @@ export const JobDetailsPage: React.FC = () => {
     const diffTime = Math.abs(now.getTime() - date.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    if (diffDays === 1) return '1 day ago';
-    if (diffDays < 7) return `${diffDays} days ago`;
-    if (diffDays < 30) return `${Math.ceil(diffDays / 7)} weeks ago`;
+    if (diffDays === 1) {return '1 day ago';}
+    if (diffDays < 7) {return `${diffDays} days ago`;}
+    if (diffDays < 30) {return `${Math.ceil(diffDays / 7)} weeks ago`;}
     return `${Math.ceil(diffDays / 30)} months ago`;
   };
 

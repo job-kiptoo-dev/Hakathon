@@ -9,21 +9,21 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { 
+  AlertTriangle, 
   Bell, 
+  Briefcase, 
+  Calendar, 
   Check, 
   CheckCheck, 
-  Trash2, 
-  Info, 
   CheckCircle, 
-  AlertTriangle, 
-  XCircle,
-  Briefcase,
-  Calendar,
+  Info,
   MessageSquare,
   Settings,
-  User
+  Trash2,
+  User,
+  XCircle
 } from 'lucide-react';
-import { useNotifications, Notification } from '@/contexts/NotificationContext';
+import { Notification, useNotifications } from '@/contexts/NotificationContext';
 
 export const NotificationPanel: React.FC = () => {
   const { 

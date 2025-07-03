@@ -7,21 +7,21 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { 
+  BarChart3, 
   Briefcase, 
-  Users, 
   Calendar, 
-  TrendingUp, 
-  Eye, 
-  Send,
-  CheckCircle,
-  Clock,
+  CheckCircle, 
+  Clock, 
+  Eye,
+  MessageSquare,
   Plus,
-  BarChart3,
+  Send,
   Star,
-  MessageSquare
+  TrendingUp,
+  Users
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
-import { mockJobListings, mockApplications } from '@/data/mockData';
+import { mockApplications, mockJobListings } from '@/data/mockData';
 
 export const EmployerDashboardHome: React.FC = () => {
   const { user } = useAuth();
@@ -91,8 +91,8 @@ export const EmployerDashboardHome: React.FC = () => {
     const diffTime = Math.abs(now.getTime() - date.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    if (diffDays === 1) return '1 day ago';
-    if (diffDays < 7) return `${diffDays} days ago`;
+    if (diffDays === 1) {return '1 day ago';}
+    if (diffDays < 7) {return `${diffDays} days ago`;}
     return `${Math.ceil(diffDays / 7)} weeks ago`;
   };
 

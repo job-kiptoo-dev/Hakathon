@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Calendar, Clock, Video, Phone, MapPin, Plus, Edit, MessageSquare } from 'lucide-react';
+import { Calendar, Clock, Edit, MapPin, MessageSquare, Phone, Plus, Video } from 'lucide-react';
 
 export const InterviewsPage: React.FC = () => {
   const [interviews] = useState([

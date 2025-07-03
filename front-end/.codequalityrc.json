@@ -1,0 +1,27 @@
+{
+  "rules": {
+    "max-file-lines": 500,
+    "max-function-lines": 50,
+    "max-complexity": 10,
+    "no-console-logs": true,
+    "no-todo-comments": false,
+    "require-jsdoc": false,
+    "prefer-typescript": true
+  },
+  "ignore": [
+    "dist/**",
+    "node_modules/**",
+    "coverage/**",
+    "*.config.js",
+    "*.config.ts"
+  ],
+  "security": {
+    "check-dependencies": true,
+    "check-vulnerabilities": true,
+    "audit-level": "moderate"
+  },
+  "performance": {
+    "bundle-size-limit": "2MB",
+    "chunk-size-limit": "500KB"
+  }
+}

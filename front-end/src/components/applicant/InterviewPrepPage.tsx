@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,19 +8,19 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { 
+  AlertCircle, 
+  Brain, 
   Calendar, 
+  CheckCircle, 
   Clock, 
-  Play, 
-  Pause, 
-  RotateCcw, 
-  Mic, 
-  Video,
-  FileText,
-  Brain,
+  FileText, 
+  Lightbulb,
+  Mic,
+  Pause,
+  Play,
+  RotateCcw,
   Target,
-  CheckCircle,
-  AlertCircle,
-  Lightbulb
+  Video
 } from 'lucide-react';
 import { geminiService } from '@/services/geminiService';
 import { mockJobListings } from '@/data/mockData';
@@ -47,7 +47,7 @@ export const InterviewPrepPage: React.FC = () => {
   ];
 
   const generateQuestions = async () => {
-    if (!selectedJob) return;
+    if (!selectedJob) {return;}
     
     setLoading(true);
     try {

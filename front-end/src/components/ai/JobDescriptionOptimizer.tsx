@@ -6,13 +6,13 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { 
-  Sparkles, 
-  CheckCircle, 
   AlertCircle, 
-  TrendingUp,
-  Copy,
+  CheckCircle, 
+  Copy, 
+  Lightbulb,
   RefreshCw,
-  Lightbulb
+  Sparkles,
+  TrendingUp
 } from 'lucide-react';
 import { geminiService } from '@/services/geminiService';
 
@@ -85,14 +85,14 @@ export const JobDescriptionOptimizer: React.FC<JobDescriptionOptimizerProps> = (
   };
 
   const getSeoScoreColor = (score: number) => {
-    if (score >= 80) return 'text-green-600';
-    if (score >= 60) return 'text-yellow-600';
+    if (score >= 80) {return 'text-green-600';}
+    if (score >= 60) {return 'text-yellow-600';}
     return 'text-red-600';
   };
 
   const getSeoScoreLabel = (score: number) => {
-    if (score >= 80) return 'Excellent';
-    if (score >= 60) return 'Good';
+    if (score >= 80) {return 'Excellent';}
+    if (score >= 60) {return 'Good';}
     return 'Needs Improvement';
   };
 

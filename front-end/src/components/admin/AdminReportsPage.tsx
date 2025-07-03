@@ -5,20 +5,20 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { 
-  Download, 
+  BarChart3, 
+  Briefcase, 
   Calendar, 
-  TrendingUp, 
-  TrendingDown,
-  Users,
-  Briefcase,
-  FileText,
   CheckCircle,
   Clock,
-  XCircle,
-  BarChart3,
-  PieChart
+  Download,
+  FileText,
+  PieChart,
+  TrendingDown,
+  TrendingUp,
+  Users,
+  XCircle
 } from 'lucide-react';
-import { mockAnalyticsData, mockJobListings, mockApplications } from '@/data/mockData';
+import { mockAnalyticsData, mockApplications, mockJobListings } from '@/data/mockData';
 
 export const AdminReportsPage: React.FC = () => {
   const [selectedPeriod, setSelectedPeriod] = useState('30d');

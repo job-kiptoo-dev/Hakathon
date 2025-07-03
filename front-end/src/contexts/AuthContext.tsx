@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { User, AuthContextType, SignupData } from '../types';
+import React, { ReactNode, createContext, useContext, useEffect, useState } from 'react';
+import { AuthContextType, SignupData, User } from '../types';
 import { mockApplicants, mockEmployers } from '../data/mockData';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);

@@ -8,16 +8,16 @@ import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
+  Award, 
   Building, 
-  Upload, 
-  Plus, 
   Edit, 
-  Trash2, 
+  Globe, 
+  MapPin, 
+  Plus,
   Save,
-  Globe,
-  MapPin,
-  Users,
-  Award
+  Trash2,
+  Upload,
+  Users
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 

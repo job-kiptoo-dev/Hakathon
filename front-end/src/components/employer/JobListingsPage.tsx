@@ -6,19 +6,19 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
-  Plus,
+  Briefcase,
+  Calendar,
+  Copy,
   Edit,
   Eye,
+  MoreHorizontal,
   Pause,
   Play,
-  Trash2,
-  Users,
-  Calendar,
-  TrendingUp,
-  Copy,
+  Plus,
   Share,
-  MoreHorizontal,
-  Briefcase
+  Trash2,
+  TrendingUp,
+  Users
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -35,7 +35,7 @@ export const JobListingsPage: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState('all');
 
   const filterJobs = (status: string) => {
-    if (status === 'all') return jobs;
+    if (status === 'all') {return jobs;}
     return jobs.filter(job => job.status === status);
   };
 
@@ -91,8 +91,8 @@ export const JobListingsPage: React.FC = () => {
     const diffTime = Math.abs(now.getTime() - date.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    if (diffDays === 1) return '1 day ago';
-    if (diffDays < 7) return `${diffDays} days ago`;
+    if (diffDays === 1) {return '1 day ago';}
+    if (diffDays < 7) {return `${diffDays} days ago`;}
     return `${Math.ceil(diffDays / 7)} weeks ago`;
   };
 

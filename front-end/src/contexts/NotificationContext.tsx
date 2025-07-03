@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 import { mockNotifications } from '@/data/mockData';
 
 export interface Notification {

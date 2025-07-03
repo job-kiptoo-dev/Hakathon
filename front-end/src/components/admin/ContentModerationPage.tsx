@@ -8,15 +8,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 import { 
   AlertTriangle, 
+  Briefcase, 
   CheckCircle, 
-  XCircle, 
-  Eye, 
+  Clock, 
+  Eye,
   Flag,
   MessageSquare,
-  Briefcase,
+  Shield,
   User,
-  Clock,
-  Shield
+  XCircle
 } from 'lucide-react';
 import { mockJobListings } from '@/data/mockData';
 
@@ -144,7 +144,7 @@ export const ContentModerationPage: React.FC = () => {
     const diffTime = Math.abs(now.getTime() - date.getTime());
     const diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
     
-    if (diffHours < 24) return `${diffHours} hours ago`;
+    if (diffHours < 24) {return `${diffHours} hours ago`;}
     const diffDays = Math.ceil(diffHours / 24);
     return `${diffDays} days ago`;
   };

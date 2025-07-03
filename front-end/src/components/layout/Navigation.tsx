@@ -13,18 +13,18 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { 
+  BarChart3, 
   Bell, 
-  Menu, 
-  Search, 
-  User, 
-  Settings, 
+  Briefcase, 
+  Calendar, 
+  FileText, 
   LogOut,
-  Briefcase,
-  Users,
-  BarChart3,
-  FileText,
-  Calendar,
-  MessageSquare
+  Menu,
+  MessageSquare,
+  Search,
+  Settings,
+  User,
+  Users
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { NotificationPanel } from '@/components/common/NotificationPanel';

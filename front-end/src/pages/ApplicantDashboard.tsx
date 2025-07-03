@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { ApplicantDashboardHome } from '@/components/applicant/ApplicantDashboardHome';
 import { JobSearchPage } from '@/components/applicant/JobSearchPage';
 import { JobDetailsPage } from '@/components/applicant/JobDetailsPage';

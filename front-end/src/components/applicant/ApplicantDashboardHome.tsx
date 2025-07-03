@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { PageHeader } from '@/components/layout/PageHeader';
@@ -7,19 +7,19 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { 
+  AlertCircle, 
   Briefcase, 
-  FileText, 
   Calendar, 
-  TrendingUp, 
+  CheckCircle, 
   Clock, 
-  CheckCircle,
-  AlertCircle,
-  Star,
   Eye,
-  Send
+  FileText,
+  Send,
+  Star,
+  TrendingUp
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
-import { mockJobListings, mockApplications, mockNotifications } from '@/data/mockData';
+import { mockApplications, mockJobListings, mockNotifications } from '@/data/mockData';
 import { geminiService } from '@/services/geminiService';
 
 export const ApplicantDashboardHome: React.FC = () => {
@@ -103,9 +103,9 @@ export const ApplicantDashboardHome: React.FC = () => {
   const recentNotifications = mockNotifications.slice(0, 3);
 
   const getMatchColor = (score: number) => {
-    if (score >= 90) return 'bg-green-500';
-    if (score >= 75) return 'bg-blue-500';
-    if (score >= 60) return 'bg-yellow-500';
+    if (score >= 90) {return 'bg-green-500';}
+    if (score >= 75) {return 'bg-blue-500';}
+    if (score >= 60) {return 'bg-yellow-500';}
     return 'bg-red-500';
   };
 

@@ -94,24 +94,53 @@ npm run preview
 ```
 
 ## Available Scripts
-- `npm run dev` — Start the development server
-- `npm run build` — Build for production
-- `npm run preview` — Preview the production build
-- `npm run lint` — Lint the codebase with ESLint
-- `npm test` — Run all tests with Jest
-- `npm run test:watch` — Run tests in watch mode
-- `npm run test:coverage` — Generate test coverage report
 
-## Testing
-- Unit and integration tests are located in `src/__tests__/` and `src/components/__tests__/`.
-- Run all tests:
-  ```sh
-  npm test
-  ```
-- Run tests in watch mode:
-  ```sh
-  npm run test:watch
-  ```
+### Development
+- `npm run dev` — Start the development server
+- `npm run preview` — Preview the production build
+
+### Building
+- `npm run build` — Build for production
+- `npm run build:dev` — Build for development
+- `npm run build:analyze` — Build and analyze bundle size
+
+### Code Quality & Linting
+- `npm run lint` — Lint the codebase with ESLint
+- `npm run lint:fix` — Lint and automatically fix issues
+- `npm run type-check` — Run TypeScript type checking
+- `npm run quality:check` — Run all quality checks (lint + type-check + security)
+
+### Security & Dependencies
+- `npm run security:audit` — Run npm security audit
+- `npm run security:check` — Run comprehensive security checks
+- `npm run deps:check` — Check for outdated dependencies
+- `npm run deps:update` — Update dependencies
+
+### Maintenance
+- `npm run clean` — Clean build artifacts and cache
+
+## CI/CD Pipeline
+
+The project includes a comprehensive CI/CD pipeline that focuses on code quality, security, and build optimization:
+
+### Pipeline Features
+- **Code Quality**: ESLint with enhanced rules, TypeScript strict mode checking
+- **Security**: npm audit, vulnerability scanning, dependency analysis
+- **Build Optimization**: Production and development builds with bundle analysis
+- **Performance**: Bundle size monitoring and chunk optimization
+- **Caching**: Intelligent dependency caching for faster builds
+
+### Quality Checks
+- **Linting**: Enhanced ESLint configuration with security and best practice rules
+- **Type Safety**: Strict TypeScript configuration with comprehensive type checking
+- **Security**: Automated vulnerability scanning and dependency auditing
+- **Code Analysis**: File size monitoring, complexity analysis, and import organization
+
+### Build Artifacts
+- Production builds are optimized with tree-shaking and minification
+- Development builds include source maps for debugging
+- Bundle analysis reports for performance monitoring
+- Automated artifact upload for deployment
 
 ## Configuration
 - **TypeScript:** Configured via `tsconfig.json` and `tsconfig.app.json`.

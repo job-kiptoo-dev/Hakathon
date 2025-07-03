@@ -6,17 +6,17 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { 
-  Search, 
-  Filter, 
-  Eye, 
+  Building, 
+  Calendar, 
+  DollarSign, 
   Edit, 
-  Trash2, 
-  Plus,
+  Eye, 
+  Filter,
   MapPin,
-  Calendar,
-  Users,
-  DollarSign,
-  Building
+  Plus,
+  Search,
+  Trash2,
+  Users
 } from 'lucide-react';
 import { mockJobListings } from '@/data/mockData';
 import { JobListing } from '@/types';

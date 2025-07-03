@@ -6,17 +6,17 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
-  TrendingUp, 
-  Users, 
   Briefcase, 
-  FileText, 
+  Calendar, 
+  Clock, 
+  DollarSign, 
   Download,
-  Calendar,
+  FileText,
   Target,
-  DollarSign,
-  Clock
+  TrendingUp,
+  Users
 } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
+import { Bar, BarChart, CartesianGrid, Cell, Line, LineChart, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { mockAnalyticsData } from '@/data/mockData';
 
 export const AnalyticsPage: React.FC = () => {

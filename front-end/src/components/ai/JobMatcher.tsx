@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { 
-  Target, 
-  TrendingUp, 
-  CheckCircle, 
   AlertCircle, 
-  Star,
-  Briefcase,
-  MapPin,
-  DollarSign,
-  RefreshCw,
+  Briefcase, 
+  CheckCircle, 
+  DollarSign, 
   Eye,
-  Send
+  MapPin,
+  RefreshCw,
+  Send,
+  Star,
+  Target,
+  TrendingUp
 } from 'lucide-react';
 import { geminiService } from '@/services/geminiService';
 import { mockJobListings } from '@/data/mockData';
@@ -101,16 +101,16 @@ export const JobMatcher: React.FC<JobMatcherProps> = ({
   };
 
   const getMatchColor = (score: number) => {
-    if (score >= 90) return 'bg-green-500';
-    if (score >= 75) return 'bg-blue-500';
-    if (score >= 60) return 'bg-yellow-500';
+    if (score >= 90) {return 'bg-green-500';}
+    if (score >= 75) {return 'bg-blue-500';}
+    if (score >= 60) {return 'bg-yellow-500';}
     return 'bg-red-500';
   };
 
   const getMatchLabel = (score: number) => {
-    if (score >= 90) return 'Excellent Match';
-    if (score >= 75) return 'Good Match';
-    if (score >= 60) return 'Fair Match';
+    if (score >= 90) {return 'Excellent Match';}
+    if (score >= 75) {return 'Good Match';}
+    if (score >= 60) {return 'Fair Match';}
     return 'Poor Match';
   };
 
@@ -124,8 +124,8 @@ export const JobMatcher: React.FC<JobMatcherProps> = ({
     const diffTime = Math.abs(now.getTime() - date.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    if (diffDays === 1) return '1 day ago';
-    if (diffDays < 7) return `${diffDays} days ago`;
+    if (diffDays === 1) {return '1 day ago';}
+    if (diffDays < 7) {return `${diffDays} days ago`;}
     return `${Math.ceil(diffDays / 7)} weeks ago`;
   };
 
