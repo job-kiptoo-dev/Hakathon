@@ -66,7 +66,7 @@ export const AdminReportsPage: React.FC = () => {
 
   const generateReport = (type: string) => {
     // In a real app, this would trigger a report generation
-    alert(`Generating ${type} report...`);
+    console.warn(`Generating ${type} report...`);
   };
 
   return (

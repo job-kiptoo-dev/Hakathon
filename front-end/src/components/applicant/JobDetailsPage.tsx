@@ -46,7 +46,7 @@ export const JobDetailsPage: React.FC = () => {
 
   const handleApply = () => {
     // In a real app, this would navigate to application form or trigger application flow
-    alert('Application functionality would be implemented here');
+    console.warn('Application functionality would be implemented here');
   };
 
   const handleShare = () => {
@@ -59,7 +59,7 @@ export const JobDetailsPage: React.FC = () => {
     } else {
       // Fallback to copying URL
       navigator.clipboard.writeText(window.location.href);
-      alert('Job URL copied to clipboard!');
+      console.warn('Job URL copied to clipboard!');
     }
   };
 
