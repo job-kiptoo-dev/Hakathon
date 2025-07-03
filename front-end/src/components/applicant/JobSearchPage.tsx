@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -25,6 +26,7 @@ import { useAuth } from '@/contexts/AuthContext';
 
 export const JobSearchPage: React.FC = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [jobs, setJobs] = useState(mockJobListings);
   const [filteredJobs, setFilteredJobs] = useState(mockJobListings);
   const [searchTerm, setSearchTerm] = useState('');
@@ -307,7 +309,11 @@ export const JobSearchPage: React.FC = () => {
                         </Badge>
                       </div>
                       <div className="flex gap-2">
-                        <Button variant="outline" size="sm">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => navigate(`/applicant/jobs/${job.id}`)}
+                        >
                           View Details
                         </Button>
                         <Button size="sm">

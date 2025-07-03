@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { User, AuthContextType, SignupData } from '../types';
-import { mockApplicants, mockEmployers, mockCompanies } from '../data/mockData';
+import { mockApplicants, mockEmployers } from '../data/mockData';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -37,6 +37,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         console.error('Error parsing saved user:', error);
         localStorage.removeItem('currentUser');
       }
+    } else {
+      // Auto-login as test applicant for development
+      const testUser = mockApplicants[0];
+      setUser(testUser);
+      localStorage.setItem('currentUser', JSON.stringify(testUser));
     }
   }, []);
 
@@ -66,9 +71,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
               name: 'Admin User',
               type: 'admin',
               avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
-              createdAt: '2023-11-01T09:00:00Z',
-              permissions: ['user_management', 'content_moderation', 'system_monitoring', 'analytics']
-            };
+              createdAt: '2023-11-01T09:00:00Z'
+            } as any;
             break;
           default:
             throw new Error('Invalid user type');
@@ -148,7 +152,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         };
         (newUser as any).jobListings = [];
       } else if (userData.userType === 'admin') {
-        (newUser as any).permissions = ['basic_access'];
+        // Admin-specific properties can be added here if needed
       }
 
       setUser(newUser);
