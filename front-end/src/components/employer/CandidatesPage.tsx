@@ -260,7 +260,7 @@ export const CandidatesPage: React.FC = () => {
                 <SelectValue placeholder="All jobs" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All jobs</SelectItem>
+                <SelectItem value="all-jobs">All jobs</SelectItem>
                 {mockJobListings.map((job) => (
                   <SelectItem key={job.id} value={job.id}>
                     {job.title}
@@ -273,7 +273,7 @@ export const CandidatesPage: React.FC = () => {
                 <SelectValue placeholder="All statuses" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All statuses</SelectItem>
+                <SelectItem value="all-statuses">All statuses</SelectItem>
                 <SelectItem value="pending">Pending</SelectItem>
                 <SelectItem value="reviewed">Reviewed</SelectItem>
                 <SelectItem value="interview">Interview</SelectItem>

@@ -37,12 +37,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         console.error('Error parsing saved user:', error);
         localStorage.removeItem('currentUser');
       }
-    } else {
-      // Auto-login as test applicant for development
-      const testUser = mockApplicants[0];
-      setUser(testUser);
-      localStorage.setItem('currentUser', JSON.stringify(testUser));
     }
+    // Removed auto-login fallback for production-like behavior
   }, []);
 
   const login = async (email: string, password: string, userType: 'applicant' | 'employer' | 'admin'): Promise<boolean> => {

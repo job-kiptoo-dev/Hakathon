@@ -83,12 +83,12 @@ export const CompanyPage: React.FC = () => {
                     </div>
                     <div>
                       <label className="text-sm font-medium mb-1 block">Company Size</label>
-                      <select className="w-full p-2 border rounded-md">
+                      <select className="w-full p-2 border rounded-md" defaultValue="501-1000">
                         <option value="1-10">1-10 employees</option>
                         <option value="11-50">11-50 employees</option>
                         <option value="51-200">51-200 employees</option>
                         <option value="201-500">201-500 employees</option>
-                        <option value="501-1000" selected>501-1000 employees</option>
+                        <option value="501-1000">501-1000 employees</option>
                         <option value="1000+">1000+ employees</option>
                       </select>
                     </div>

@@ -17,31 +17,56 @@ class GeminiService {
   }
 
   private async makeRequest(prompt: string): Promise<string> {
-    try {
-      const response = await fetch(`${this.baseUrl}?key=${this.apiKey}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: prompt
+    const maxRetries = 3;
+    let attempt = 0;
+    let lastError: any = null;
+    while (attempt <= maxRetries) {
+      try {
+        const response = await fetch(`${this.baseUrl}?key=${this.apiKey}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            contents: [{
+              parts: [{
+                text: prompt
+              }]
             }]
-          }]
-        }),
-      });
+          }),
+        });
 
-      if (!response.ok) {
-        throw new Error(`Gemini API error: ${response.status}`);
+        if (response.status === 429) {
+          // Too Many Requests, retry after delay
+          const delay = Math.pow(2, attempt) * 1000; // 1s, 2s, 4s
+          await new Promise(res => setTimeout(res, delay));
+          attempt++;
+          continue;
+        }
+
+        if (!response.ok) {
+          throw new Error(`Gemini API error: ${response.status}`);
+        }
+
+        const data: GeminiResponse = await response.json();
+        return data.candidates[0]?.content?.parts[0]?.text || '';
+      } catch (error: any) {
+        lastError = error;
+        // Only retry on 429, otherwise break
+        if (error instanceof Error && error.message.includes('429')) {
+          const delay = Math.pow(2, attempt) * 1000;
+          await new Promise(res => setTimeout(res, delay));
+          attempt++;
+          continue;
+        } else {
+          console.error('Gemini API error:', error);
+          throw error;
+        }
       }
-
-      const data: GeminiResponse = await response.json();
-      return data.candidates[0]?.content?.parts[0]?.text || '';
-    } catch (error) {
-      console.error('Gemini API error:', error);
-      throw error;
     }
+    // If we get here, all retries failed
+    console.error('Gemini API error after retries:', lastError);
+    throw lastError || new Error('Gemini API error: 429 (Too Many Requests)');
   }
 
   async generateCoverLetter(
