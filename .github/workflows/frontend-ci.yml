@@ -72,14 +72,14 @@ jobs:
 
       # Upload build artifacts
       - name: Upload production build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: production-build
           path: front-end/dist/
           retention-days: 7
 
       - name: Upload development build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: development-build
           path: front-end/dist/
