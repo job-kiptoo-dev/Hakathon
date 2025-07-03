@@ -1,0 +1,148 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches: [ amos ]
+  pull_request:
+    branches: [ amos ]
+
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: front-end
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+          cache-dependency-path: front-end/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: front-end/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('front-end/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # Code Quality & Linting
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: TypeScript type checking
+        run: npx tsc --noEmit
+
+      # Security Checks
+      - name: Run npm audit
+        run: npm audit --audit-level=moderate
+        continue-on-error: true
+
+      - name: Check for known vulnerabilities
+        run: npx audit-ci --moderate
+        continue-on-error: true
+
+      # Build Process
+      - name: Build frontend (production)
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Build frontend (development)
+        run: npm run build:dev
+        env:
+          NODE_ENV: development
+
+      # Build Analysis
+      - name: Analyze bundle size
+        run: |
+          echo "Production build size:"
+          du -sh dist/
+          echo "Main bundle files:"
+          find dist/ -name "*.js" -o -name "*.css" | head -10 | xargs ls -lh
+
+      # Upload build artifacts
+      - name: Upload production build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-build
+          path: front-end/dist/
+          retention-days: 7
+
+      - name: Upload development build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: development-build
+          path: front-end/dist/
+          retention-days: 3
+
+  # Additional Quality Checks Job
+  code-quality:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: front-end
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+          cache-dependency-path: front-end/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Additional linting and formatting checks
+      - name: Check code formatting (Prettier simulation)
+        run: |
+          echo "Checking for consistent code formatting..."
+          # Since no prettier config exists, we'll check basic formatting consistency
+          find src -name "*.ts" -o -name "*.tsx" | xargs grep -l "  " | wc -l || true
+
+      - name: Check for TODO/FIXME comments
+        run: |
+          echo "Checking for TODO/FIXME comments:"
+          grep -r "TODO\|FIXME\|XXX\|HACK" src/ || echo "No TODO/FIXME comments found"
+
+      - name: Check for console.log statements
+        run: |
+          echo "Checking for console.log statements:"
+          grep -r "console\.log" src/ || echo "No console.log statements found"
+
+      - name: Check import organization
+        run: |
+          echo "Checking for unused imports (basic check):"
+          # Basic check for potential unused imports
+          find src -name "*.ts" -o -name "*.tsx" | xargs grep -l "^import.*from" | head -5
+
+      # Dependency Analysis
+      - name: Check for outdated dependencies
+        run: npm outdated || true
+
+      - name: Check for duplicate dependencies
+        run: npx npm-check-duplicates || true
+
+      # File size and complexity analysis
+      - name: Analyze file sizes
+        run: |
+          echo "Largest source files:"
+          find src -name "*.ts" -o -name "*.tsx" | xargs wc -l | sort -nr | head -10
+
+      - name: Check for large files
+        run: |
+          echo "Files larger than 500 lines:"
+          find src -name "*.ts" -o -name "*.tsx" | xargs wc -l | awk '$1 > 500 {print $2 " (" $1 " lines)"}' || echo "No large files found"

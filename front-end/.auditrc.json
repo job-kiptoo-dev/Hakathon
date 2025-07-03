@@ -1,0 +1,13 @@
+{
+  "allowlist": [],
+  "levels": {
+    "low": false,
+    "moderate": true,
+    "high": true,
+    "critical": true
+  },
+  "report-type": "summary",
+  "advisories": [],
+  "whitelist": [],
+  "registry": "https://registry.npmjs.org/"
+}
