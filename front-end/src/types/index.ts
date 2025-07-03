@@ -126,6 +126,7 @@ export interface Application {
   jobId: string;
   applicantId: string;
   job: JobListing;
+  applicant?: Applicant; // Optional for easier data handling
   status: 'pending' | 'reviewed' | 'interview' | 'offered' | 'rejected' | 'accepted';
   coverLetter: string;
   customAnswers: { question: string; answer: string; }[];
@@ -199,4 +200,20 @@ export interface AnalyticsData {
     rejected: number;
     accepted: number;
   };
+}
+
+export interface AuthContextType {
+  user: User | null;
+  login: (email: string, password: string, userType: 'applicant' | 'employer' | 'admin') => Promise<boolean>;
+  logout: () => void;
+  signup: (userData: SignupData) => Promise<boolean>;
+  isLoading: boolean;
+}
+
+export interface SignupData {
+  email: string;
+  password: string;
+  name: string;
+  userType: 'applicant' | 'employer' | 'admin';
+  companyName?: string; // For employers
 }

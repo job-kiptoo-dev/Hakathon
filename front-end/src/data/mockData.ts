@@ -288,51 +288,269 @@ export const mockApplicants: Applicant[] = [
     },
     applications: [],
     savedJobs: ['job-1', 'job-3']
-  }
-];
-
-// Mock Employers
-export const mockEmployers: Employer[] = [
+  },
   {
-    id: 'emp-1',
-    email: 'hr@techcorp.com',
-    name: 'Sarah Johnson',
-    type: 'employer',
+    id: 'user-2',
+    email: 'sarah.wilson@email.com',
+    name: 'Sarah Wilson',
+    type: 'applicant',
     avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612e601?w=100&h=100&fit=crop&crop=face',
-    createdAt: '2023-12-01T09:00:00Z',
-    company: mockCompanies[0],
-    jobListings: [mockJobListings[0], mockJobListings[2]]
+    createdAt: '2024-01-12T09:30:00Z',
+    profile: {
+      id: 'profile-2',
+      userId: 'user-2',
+      personalInfo: {
+        firstName: 'Sarah',
+        lastName: 'Wilson',
+        phone: '+1 (555) 234-5678',
+        location: 'Austin, TX',
+        linkedin: 'https://linkedin.com/in/sarahwilson',
+        portfolio: 'https://sarahwilson.dev'
+      },
+      professional: {
+        title: 'Data Scientist',
+        summary: 'Experienced data scientist with 4 years of expertise in machine learning, statistical analysis, and data visualization. Proven track record of delivering actionable insights from complex datasets.',
+        experience: [
+          {
+            id: 'exp-3',
+            company: 'Analytics Corp',
+            position: 'Data Scientist',
+            startDate: '2021-06',
+            endDate: '2024-01',
+            current: false,
+            description: 'Developed predictive models that improved customer retention by 25%. Led cross-functional teams to implement data-driven solutions.',
+            skills: ['Python', 'SQL', 'TensorFlow', 'Pandas']
+          }
+        ],
+        education: [
+          {
+            id: 'edu-2',
+            institution: 'University of Texas at Austin',
+            degree: 'Master of Science',
+            field: 'Data Science',
+            startDate: '2019-09',
+            endDate: '2021-05',
+            gpa: 3.8
+          }
+        ],
+        skills: ['Python', 'SQL', 'Machine Learning', 'TensorFlow', 'Pandas', 'R', 'Tableau', 'Statistics'],
+        certifications: ['Google Cloud Professional Data Engineer', 'AWS Certified Machine Learning']
+      },
+      preferences: {
+        desiredSalaryMin: 110000,
+        desiredSalaryMax: 150000,
+        preferredLocations: ['Austin, TX', 'Remote'],
+        jobTypes: ['full-time'],
+        remotePreference: 'remote'
+      },
+      resume: {
+        fileName: 'sarah_wilson_resume.pdf',
+        fileUrl: '/resumes/sarah_wilson_resume.pdf',
+        uploadedAt: '2024-01-12T11:15:00Z'
+      },
+      profileCompleteness: 90
+    },
+    applications: [],
+    savedJobs: ['job-2']
+  },
+  {
+    id: 'user-3',
+    email: 'mike.chen@email.com',
+    name: 'Mike Chen',
+    type: 'applicant',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
+    createdAt: '2024-01-08T14:20:00Z',
+    profile: {
+      id: 'profile-3',
+      userId: 'user-3',
+      personalInfo: {
+        firstName: 'Mike',
+        lastName: 'Chen',
+        phone: '+1 (555) 345-6789',
+        location: 'Seattle, WA',
+        linkedin: 'https://linkedin.com/in/mikechen',
+        portfolio: 'https://mikechen.dev'
+      },
+      professional: {
+        title: 'DevOps Engineer',
+        summary: 'DevOps engineer with 5 years of experience in cloud infrastructure, CI/CD pipelines, and containerization. Passionate about automation and scalable systems.',
+        experience: [
+          {
+            id: 'exp-4',
+            company: 'Cloud Solutions Inc',
+            position: 'DevOps Engineer',
+            startDate: '2020-03',
+            endDate: '2024-01',
+            current: false,
+            description: 'Designed and implemented CI/CD pipelines that reduced deployment time by 60%. Managed AWS infrastructure serving millions of users.',
+            skills: ['AWS', 'Docker', 'Kubernetes', 'Terraform']
+          }
+        ],
+        education: [
+          {
+            id: 'edu-3',
+            institution: 'University of Washington',
+            degree: 'Bachelor of Science',
+            field: 'Computer Engineering',
+            startDate: '2016-09',
+            endDate: '2020-05',
+            gpa: 3.6
+          }
+        ],
+        skills: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'Python', 'Linux', 'Jenkins', 'Git'],
+        certifications: ['AWS Certified Solutions Architect', 'Certified Kubernetes Administrator']
+      },
+      preferences: {
+        desiredSalaryMin: 130000,
+        desiredSalaryMax: 170000,
+        preferredLocations: ['Seattle, WA', 'San Francisco, CA'],
+        jobTypes: ['full-time'],
+        remotePreference: 'hybrid'
+      },
+      resume: {
+        fileName: 'mike_chen_resume.pdf',
+        fileUrl: '/resumes/mike_chen_resume.pdf',
+        uploadedAt: '2024-01-08T16:45:00Z'
+      },
+      profileCompleteness: 88
+    },
+    applications: [],
+    savedJobs: ['job-3']
+  },
+  {
+    id: 'user-4',
+    email: 'emily.davis@email.com',
+    name: 'Emily Davis',
+    type: 'applicant',
+    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
+    createdAt: '2024-01-15T11:10:00Z',
+    profile: {
+      id: 'profile-4',
+      userId: 'user-4',
+      personalInfo: {
+        firstName: 'Emily',
+        lastName: 'Davis',
+        phone: '+1 (555) 456-7890',
+        location: 'Portland, OR',
+        linkedin: 'https://linkedin.com/in/emilydavis',
+        portfolio: 'https://emilydavis.design'
+      },
+      professional: {
+        title: 'UX Designer',
+        summary: 'Creative UX designer with 4 years of experience creating user-centered designs for web and mobile applications. Strong background in user research and design systems.',
+        experience: [
+          {
+            id: 'exp-5',
+            company: 'Design Studio',
+            position: 'UX Designer',
+            startDate: '2021-01',
+            endDate: '2024-01',
+            current: false,
+            description: 'Led design for multiple client projects, improving user satisfaction scores by 40%. Conducted user research and usability testing.',
+            skills: ['Figma', 'Sketch', 'Adobe Creative Suite', 'User Research']
+          }
+        ],
+        education: [
+          {
+            id: 'edu-4',
+            institution: 'Art Institute of Portland',
+            degree: 'Bachelor of Fine Arts',
+            field: 'Graphic Design',
+            startDate: '2017-09',
+            endDate: '2021-05',
+            gpa: 3.9
+          }
+        ],
+        skills: ['Figma', 'Sketch', 'Adobe Creative Suite', 'Prototyping', 'User Research', 'Design Systems'],
+        certifications: ['Google UX Design Certificate', 'Adobe Certified Expert']
+      },
+      preferences: {
+        desiredSalaryMin: 95000,
+        desiredSalaryMax: 125000,
+        preferredLocations: ['Portland, OR', 'Seattle, WA'],
+        jobTypes: ['full-time'],
+        remotePreference: 'hybrid'
+      },
+      resume: {
+        fileName: 'emily_davis_resume.pdf',
+        fileUrl: '/resumes/emily_davis_resume.pdf',
+        uploadedAt: '2024-01-15T13:30:00Z'
+      },
+      profileCompleteness: 92
+    },
+    applications: [],
+    savedJobs: ['job-4']
+  },
+  {
+    id: 'user-5',
+    email: 'alex.rodriguez@email.com',
+    name: 'Alex Rodriguez',
+    type: 'applicant',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face',
+    createdAt: '2024-01-05T16:45:00Z',
+    profile: {
+      id: 'profile-5',
+      userId: 'user-5',
+      personalInfo: {
+        firstName: 'Alex',
+        lastName: 'Rodriguez',
+        phone: '+1 (555) 567-8901',
+        location: 'Denver, CO',
+        linkedin: 'https://linkedin.com/in/alexrodriguez',
+        portfolio: 'https://alexrodriguez.pm'
+      },
+      professional: {
+        title: 'Product Manager',
+        summary: 'Strategic product manager with 3 years of experience driving product vision and roadmap execution. Strong analytical skills and cross-functional collaboration experience.',
+        experience: [
+          {
+            id: 'exp-6',
+            company: 'Startup Ventures',
+            position: 'Product Manager',
+            startDate: '2022-01',
+            endDate: '2024-01',
+            current: false,
+            description: 'Managed product roadmap for B2B SaaS platform, increasing user engagement by 35%. Collaborated with engineering and design teams.',
+            skills: ['Product Strategy', 'Agile', 'Data Analysis', 'User Research']
+          }
+        ],
+        education: [
+          {
+            id: 'edu-5',
+            institution: 'University of Colorado Boulder',
+            degree: 'Bachelor of Science',
+            field: 'Business Administration',
+            startDate: '2018-09',
+            endDate: '2022-05',
+            gpa: 3.7
+          }
+        ],
+        skills: ['Product Strategy', 'Agile', 'Data Analysis', 'Market Research', 'Leadership', 'Communication'],
+        certifications: ['Certified Scrum Product Owner', 'Google Analytics Certified']
+      },
+      preferences: {
+        desiredSalaryMin: 120000,
+        desiredSalaryMax: 160000,
+        preferredLocations: ['Denver, CO', 'Remote'],
+        jobTypes: ['full-time'],
+        remotePreference: 'remote'
+      },
+      resume: {
+        fileName: 'alex_rodriguez_resume.pdf',
+        fileUrl: '/resumes/alex_rodriguez_resume.pdf',
+        uploadedAt: '2024-01-05T18:20:00Z'
+      },
+      profileCompleteness: 85
+    },
+    applications: [],
+    savedJobs: ['job-5']
   }
 ];
 
-// Mock Applications
-export const mockApplications: Application[] = [
-  {
-    id: 'app-1',
-    jobId: 'job-1',
-    applicantId: 'user-1',
-    job: mockJobListings[0],
-    status: 'reviewed',
-    coverLetter: 'Dear Hiring Manager,\n\nI am excited to apply for the Senior Frontend Developer position at TechCorp Solutions. With 6 years of experience in frontend development and a proven track record of building scalable React applications, I believe I would be a valuable addition to your team...',
-    customAnswers: [
-      {
-        question: 'What interests you most about this role?',
-        answer: 'I am particularly excited about the opportunity to work on AI-powered solutions and contribute to innovative projects that can make a real impact.'
-      }
-    ],
-    submittedAt: '2024-01-16T14:30:00Z',
-    lastUpdated: '2024-01-20T09:15:00Z',
-    matchScore: 92,
-    notes: 'Strong technical background, good cultural fit',
-    interviewScheduled: {
-      date: '2024-01-30',
-      time: '14:00',
-      type: 'video',
-      location: 'Zoom Meeting',
-      interviewers: ['Sarah Johnson', 'Mike Chen']
-    }
-  }
-];
+// Mock Employers will be defined after job listings
+
+// Mock Applications will be defined after applicants are created
+export let mockApplications: Application[] = [];
 
 // Mock Notifications
 export const mockNotifications: Notification[] = [
@@ -396,9 +614,164 @@ export const mockAnalyticsData: AnalyticsData = {
   }
 };
 
-// Current user state (for demo purposes)
-export let currentUser = mockApplicants[0];
+// Initialize applications with proper applicant references
+mockApplications = [
+  {
+    id: 'app-1',
+    jobId: 'job-1',
+    applicantId: 'user-1',
+    job: mockJobListings[0],
+    applicant: mockApplicants[0], // John Doe
+    status: 'reviewed',
+    coverLetter: 'Dear Hiring Manager,\n\nI am excited to apply for the Senior Frontend Developer position at TechCorp Solutions. With 6 years of experience in frontend development and a proven track record of building scalable React applications, I believe I would be a valuable addition to your team...',
+    customAnswers: [
+      {
+        question: 'What interests you most about this role?',
+        answer: 'I am particularly excited about the opportunity to work on AI-powered solutions and contribute to innovative projects that can make a real impact.'
+      }
+    ],
+    submittedAt: '2024-01-16T14:30:00Z',
+    lastUpdated: '2024-01-20T09:15:00Z',
+    matchScore: 92,
+    notes: 'Strong technical background, good cultural fit',
+    interviewScheduled: {
+      date: '2024-01-30',
+      time: '14:00',
+      type: 'video',
+      location: 'Zoom Meeting',
+      interviewers: ['Sarah Johnson', 'Mike Chen']
+    }
+  },
+  {
+    id: 'app-2',
+    jobId: 'job-2',
+    applicantId: 'user-2',
+    job: mockJobListings[1],
+    applicant: mockApplicants[1], // Sarah Wilson
+    status: 'pending',
+    coverLetter: 'Dear Hiring Team,\n\nI am writing to express my interest in the Data Scientist position at DataFlow Inc. With my strong background in machine learning and statistical analysis, I am confident I can contribute to your data-driven initiatives...',
+    customAnswers: [],
+    submittedAt: '2024-01-22T10:15:00Z',
+    lastUpdated: '2024-01-22T10:15:00Z',
+    matchScore: 88,
+    notes: ''
+  },
+  {
+    id: 'app-3',
+    jobId: 'job-3',
+    applicantId: 'user-3',
+    job: mockJobListings[2],
+    applicant: mockApplicants[2], // Mike Chen
+    status: 'interview',
+    coverLetter: 'Hello,\n\nI am excited to apply for the DevOps Engineer position at TechCorp Solutions. My 5 years of experience in cloud infrastructure and CI/CD pipelines align perfectly with your requirements...',
+    customAnswers: [],
+    submittedAt: '2024-01-18T16:45:00Z',
+    lastUpdated: '2024-01-25T11:30:00Z',
+    matchScore: 85,
+    notes: 'Good DevOps experience, scheduled for technical interview',
+    interviewScheduled: {
+      date: '2024-02-02',
+      time: '15:00',
+      type: 'video',
+      location: 'Google Meet',
+      interviewers: ['Sarah Johnson', 'Tech Lead']
+    }
+  },
+  {
+    id: 'app-4',
+    jobId: 'job-4',
+    applicantId: 'user-4',
+    job: mockJobListings[3],
+    applicant: mockApplicants[3], // Emily Davis
+    status: 'offered',
+    coverLetter: 'Dear Design Team,\n\nI am thrilled to apply for the UX Designer position at GreenTech Innovations. My passion for sustainable technology and user-centered design makes this opportunity particularly exciting...',
+    customAnswers: [],
+    submittedAt: '2024-01-20T14:20:00Z',
+    lastUpdated: '2024-01-28T09:45:00Z',
+    matchScore: 94,
+    notes: 'Excellent portfolio, strong design thinking skills'
+  },
+  {
+    id: 'app-5',
+    jobId: 'job-5',
+    applicantId: 'user-5',
+    job: mockJobListings[4],
+    applicant: mockApplicants[4], // Alex Rodriguez
+    status: 'rejected',
+    coverLetter: 'Dear Product Team,\n\nI would like to apply for the Product Manager role at DataFlow Inc. My experience in B2B SaaS product management and analytical skills would be valuable to your team...',
+    customAnswers: [],
+    submittedAt: '2024-01-15T11:30:00Z',
+    lastUpdated: '2024-01-26T16:20:00Z',
+    matchScore: 72,
+    notes: 'Good experience but looking for more senior candidate'
+  },
+  {
+    id: 'app-6',
+    jobId: 'job-1',
+    applicantId: 'user-2',
+    job: mockJobListings[0],
+    applicant: mockApplicants[1], // Sarah Wilson applying for Frontend role
+    status: 'pending',
+    coverLetter: 'Dear Hiring Manager,\n\nWhile my background is primarily in data science, I am passionate about transitioning to frontend development and have been building projects with React and TypeScript...',
+    customAnswers: [],
+    submittedAt: '2024-01-24T09:20:00Z',
+    lastUpdated: '2024-01-24T09:20:00Z',
+    matchScore: 65,
+    notes: 'Career transition candidate, interesting background'
+  },
+  {
+    id: 'app-7',
+    jobId: 'job-2',
+    applicantId: 'user-5',
+    job: mockJobListings[1],
+    applicant: mockApplicants[4], // Alex Rodriguez applying for Data Scientist
+    status: 'reviewed',
+    coverLetter: 'Dear DataFlow Team,\n\nAs a product manager with strong analytical skills, I am interested in transitioning to a more technical data science role...',
+    customAnswers: [],
+    submittedAt: '2024-01-19T15:45:00Z',
+    lastUpdated: '2024-01-23T11:20:00Z',
+    matchScore: 68,
+    notes: 'Strong analytical background, needs technical assessment'
+  }
+];
 
-export const setCurrentUser = (user: any) => {
+// Mock Employers with job listings
+export const mockEmployers: Employer[] = [
+  {
+    id: 'emp-1',
+    email: 'hr@techcorp.com',
+    name: 'Sarah Johnson',
+    type: 'employer',
+    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612e601?w=100&h=100&fit=crop&crop=face',
+    createdAt: '2023-12-01T09:00:00Z',
+    company: mockCompanies[0],
+    jobListings: [mockJobListings[0], mockJobListings[2]] // Senior Frontend Developer and DevOps Engineer
+  },
+  {
+    id: 'emp-2',
+    email: 'hiring@dataflow.com',
+    name: 'Michael Chen',
+    type: 'employer',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
+    createdAt: '2023-11-15T09:00:00Z',
+    company: mockCompanies[1],
+    jobListings: [mockJobListings[1], mockJobListings[4]] // Data Scientist and Product Manager
+  },
+  {
+    id: 'emp-3',
+    email: 'talent@greentech.com',
+    name: 'Emily Rodriguez',
+    type: 'employer',
+    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
+    createdAt: '2023-10-20T09:00:00Z',
+    company: mockCompanies[2],
+    jobListings: [mockJobListings[3]] // UX Designer
+  }
+];
+
+// Current user state (for demo purposes)
+export let currentUser: Applicant | Employer | Admin = mockApplicants[0];
+
+export const setCurrentUser = (user: Applicant | Employer | Admin) => {
   currentUser = user;
 };

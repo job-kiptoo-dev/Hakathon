@@ -1,33 +1,62 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Index = () => {
   const navigate = useNavigate();
-  
-  const handleUserTypeSelection = (userType: 'applicant' | 'employer' | 'admin') => {
-    if (userType === 'applicant') {
-      navigate('/applicant');
-    } else if (userType === 'employer') {
-      navigate('/employer');
-    } else {
-      navigate('/admin');
+  const { user } = useAuth();
+
+  // Redirect authenticated users to their dashboard
+  useEffect(() => {
+    if (user) {
+      switch (user.type) {
+        case 'applicant':
+          navigate('/applicant/dashboard');
+          break;
+        case 'employer':
+          navigate('/employer/dashboard');
+          break;
+        case 'admin':
+          navigate('/admin/dashboard');
+          break;
+      }
     }
+  }, [user, navigate]);
+
+  const handleUserTypeSelection = (userType: 'applicant' | 'employer' | 'admin') => {
+    navigate('/auth');
+  };
+
+  const handleLogin = () => {
+    navigate('/auth');
+  };
+
+  const handleSignup = () => {
+    navigate('/auth');
   };
 
   return (
     <div className="min-h-screen bg-gradient-primary">
       {/* Header */}
-      <header className="bg-white/10 backdrop-blur-md border-b border-white/20">
+      <header className="sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-bold text-white">JobMatch AI</h1>
             <div className="flex gap-4">
-              <Button variant="outline" className="text-white border-white/30 hover:bg-white/10">
+              <Button
+                variant="outline"
+                className="text-white border-white/30 hover:bg-white/10 font-semibold px-6 py-2 transition-all duration-200 hover:border-white/50 hover:shadow-lg"
+                onClick={handleLogin}
+              >
                 Login
               </Button>
-              <Button variant="secondary">
+              <Button
+                variant="secondary"
+                className="font-semibold px-6 py-2 bg-white text-primary hover:bg-white/90 transition-all duration-200 hover:shadow-lg"
+                onClick={handleSignup}
+              >
                 Sign Up
               </Button>
             </div>
