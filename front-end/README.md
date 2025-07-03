@@ -1,73 +1,131 @@
-# Welcome to your Lovable project
+# Hakathon Frontend
 
-## Project info
+A modern, AI-powered job matching platform frontend built with React, TypeScript, Vite, shadcn-ui, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/afbeada5-eb9c-4a48-a9f2-a70fbd26f78b
+## Table of Contents
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Available Scripts](#available-scripts)
+- [Testing](#testing)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Features
+- **AI-Powered Job Matching:** Smart job recommendations based on applicant profiles and preferences.
+- **Applicant Dashboard:**
+  - Job search with advanced filters (keywords, location, type, remote, salary).
+  - View job details, save jobs, and apply directly.
+  - Track applications and interview progress.
+  - AI-powered interview preparation and resume/cover letter tools.
+- **Employer Dashboard:**
+  - Manage job listings, view candidates, and track applications.
+  - Schedule interviews and review analytics.
+- **Admin Dashboard:**
+  - Platform analytics, user management, content moderation, and reports.
+- **Modern UI:** Responsive, accessible, and visually appealing interface using shadcn-ui and Tailwind CSS.
+- **Authentication:** Role-based access for applicants, employers, and admins.
+- **Notifications:** Real-time updates and alerts for users.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/afbeada5-eb9c-4a48-a9f2-a70fbd26f78b) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## Project Structure
+```
+front-end/
+  ├── public/                # Static assets
+  ├── src/
+  │   ├── components/        # Reusable UI and feature components
+  │   ├── contexts/          # React context providers (auth, notifications)
+  │   ├── data/              # Mock data for development
+  │   ├── hooks/             # Custom React hooks
+  │   ├── lib/               # Utility functions
+  │   ├── pages/             # Top-level route pages
+  │   ├── services/          # API and AI service integrations
+  │   ├── types/             # TypeScript type definitions
+  │   └── main.tsx           # App entry point
+  ├── index.html             # Main HTML file
+  ├── package.json           # Project metadata and scripts
+  └── tailwind.config.ts     # Tailwind CSS configuration
 ```
 
-**Edit a file directly in GitHub**
+## Tech Stack
+- **React** (with React Router)
+- **TypeScript**
+- **Vite** (build tool)
+- **shadcn-ui** (UI components, built on Radix UI)
+- **Tailwind CSS** (utility-first styling)
+- **Jest** & **React Testing Library** (testing)
+- **@tanstack/react-query** (data fetching/caching)
+- **Lucide-react** (icons)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Getting Started
 
-**Use GitHub Codespaces**
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Installation
+```sh
+# Clone the repository
+git clone <YOUR_GIT_URL>
+cd front-end
 
-## What technologies are used for this project?
+# Install dependencies
+npm install
+```
 
-This project is built with:
+### Running the Development Server
+```sh
+npm run dev
+```
+- The app will be available at `http://localhost:5173` (default Vite port).
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Building for Production
+```sh
+npm run build
+```
+- Output will be in the `dist/` directory.
 
-## How can I deploy this project?
+### Previewing Production Build
+```sh
+npm run preview
+```
 
-Simply open [Lovable](https://lovable.dev/projects/afbeada5-eb9c-4a48-a9f2-a70fbd26f78b) and click on Share -> Publish.
+## Available Scripts
+- `npm run dev` — Start the development server
+- `npm run build` — Build for production
+- `npm run preview` — Preview the production build
+- `npm run lint` — Lint the codebase with ESLint
+- `npm test` — Run all tests with Jest
+- `npm run test:watch` — Run tests in watch mode
+- `npm run test:coverage` — Generate test coverage report
 
-## Can I connect a custom domain to my Lovable project?
+## Testing
+- Unit and integration tests are located in `src/__tests__/` and `src/components/__tests__/`.
+- Run all tests:
+  ```sh
+  npm test
+  ```
+- Run tests in watch mode:
+  ```sh
+  npm run test:watch
+  ```
 
-Yes, you can!
+## Configuration
+- **TypeScript:** Configured via `tsconfig.json` and `tsconfig.app.json`.
+- **Path Aliases:** Use `@/` to reference `src/` (e.g., `@/components/ui/button`).
+- **Environment Variables:**
+  - Create a `.env` file for custom environment variables if needed (see [Vite env docs](https://vitejs.dev/guide/env-and-mode.html)).
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Contributing
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Make your changes
+4. Run tests and lint your code
+5. Commit and push (`git commit -m 'Add feature' && git push`)
+6. Open a pull request
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## License
+This project is licensed under the MIT License.
